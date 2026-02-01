@@ -8,12 +8,13 @@ public class MainMenuInitManager : MonoBehaviour
     [SerializeField] private PiecesPrefabsFactory _pieceFactory;
     [SerializeField] private PlayerSettingsHandler[] _handlers;
 
+    [SerializeField] private GameStartupHandler _gameStartupHandler;
+
     public void Start()
     {
-        // Инициализируем менеджер выбора фишек
         _pieceSelectorManager.Init(_pieceFactory);
 
-        // Загружаем настройки игроков из конфига
-        _playerSettingLoaderManager.Load(_bingoInitConfig, _pieceFactory, _pieceSelectorManager);
+        _gameStartupHandler.Init(_handlers);
+        _playerSettingLoaderManager.Load(_bingoInitConfig, _pieceFactory, _pieceSelectorManager, _handlers);
     }
 }

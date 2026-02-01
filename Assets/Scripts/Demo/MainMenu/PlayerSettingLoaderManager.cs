@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class PlayerSettingLoaderManager : MonoBehaviour
 {
-    [SerializeField] private PlayerSettingsHandler[] handlers;
+    private PlayerSettingsHandler[] handlers;
 
-    public void Load(BingoInitConfig config, PiecesPrefabsFactory factory, PieceSelectorManager selectorManager)
+    public void Load(BingoInitConfig config, PiecesPrefabsFactory factory, PieceSelectorManager selectorManager, PlayerSettingsHandler[] playersettingsHandlers)
     {
+        handlers = playersettingsHandlers;
+
         for (int i = 0; i < handlers.Length && i < config.players.Length; i++)
         {
             PlayerInfo playerInfo = config.players[i];

@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class GameStartupHandler : MonoBehaviour
 {
-    [SerializeField] private PlayerSettingsHandler[] _playerSettingsHandlers;
+    private PlayerSettingsHandler[] _playerSettingsHandlers;
     [SerializeField] private BingoInitConfig _bingoInitConfig;
+
+    public void Init(PlayerSettingsHandler[] handler)
+    {
+        _playerSettingsHandlers = handler;
+    }
 
     public void StartGame()
     {

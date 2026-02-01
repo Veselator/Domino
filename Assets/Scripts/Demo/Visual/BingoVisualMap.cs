@@ -166,6 +166,7 @@ public class BingoVisualMap : MonoBehaviour
             GameObject pieceGO = _pieces[key];
 
             UniversalAnimator animator = pieceGO.GetComponent<UniversalAnimator>();
+            animator.PlayParticles();
             animator.InterpolateColor(_colorHighlithed, _timeToHighlight);
             animator.AnimateScale(pieceGO.transform.localScale * _highlightedScaleFactor, _timeToHighlight);
 

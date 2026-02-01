@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class UniversalAnimator : MonoBehaviour
 {
+    // Animate ANYTHING using this script
+
     private SpriteRenderer _spriteRenderer;
     public SpriteRenderer SpriteRenderer => _spriteRenderer;
 
@@ -22,12 +24,25 @@ public class UniversalAnimator : MonoBehaviour
 
     private const string GlitchCharacters = "!@#$%^&*()_+-=[]{}|;':\",./<>?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
+    [SerializeField] private ParticleSystem[] _particles;
+
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _image = GetComponent<Image>();
         _text = GetComponent<TMP_Text>();
         _rect = GetComponent<RectTransform>();
+    }
+
+    public void PlayParticles()
+    {
+        if (_particles != null)
+        {
+            foreach (ParticleSystem particle in _particles)
+            {
+                particle.Play();
+            }
+        }
     }
 
     // ================= POSITION ANIMATIONS =================

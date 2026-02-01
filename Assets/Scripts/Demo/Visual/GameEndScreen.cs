@@ -15,7 +15,9 @@ public class GameEndScreen : MonoBehaviour
     [SerializeField] private UniversalAnimator _winText;
     [SerializeField] private UniversalAnimator _loseText;
     [SerializeField] private UniversalAnimator _restartButton;
+    [SerializeField] private UniversalAnimator _menuButton;
     [SerializeField] private UniversalAnimator _restartButtonText;
+    [SerializeField] private UniversalAnimator _menuButtonText;
 
     [Header("Параметры анимации")]
     [SerializeField] private float _fadeAnimationDuration = 0.5f;
@@ -46,10 +48,12 @@ public class GameEndScreen : MonoBehaviour
     {
         _handler.SetActive(true);
         _restartButton.Rect.sizeDelta = Vector2.zero;
+        _menuButton.Rect.sizeDelta = Vector2.zero;
         _background.Image.color = Color.clear;
         _winText.Text.text = "";
         _loseText.Text.text = "";
         _restartButtonText.Text.text = "";
+        _menuButtonText.Text.text = "";
         StartCoroutine(AnimateGameEndScreen(players));
     }
 
@@ -61,16 +65,16 @@ public class GameEndScreen : MonoBehaviour
         yield return delay;
 
         _winText.StyledTypingAnimation(GetWinText(players), _timePerCharacter);
-        //_winText.AnimateImageSizeWithOvershoot(_winTextFinalSize, _animationDuration);
         yield return delay;
 
         _loseText.TextTypingAnimation(GetLoseText(players), _timePerCharacter);
-        //_loseText.AnimateImageSizeWithOvershoot(_loseTextFinalSize, _animationDuration);
         yield return delay;
 
         _restartButton.AnimateImageSizeWithOvershoot(_buttonFinalSize, _buttonAnimationDuration);
+        _menuButton.AnimateImageSizeWithOvershoot(_buttonFinalSize, _buttonAnimationDuration);
         yield return delay;
         _restartButtonText.StyledTypingAnimation("PLAY AGAIN", _timePerCharacter);
+        _menuButtonText.StyledTypingAnimation("MENU", _timePerCharacter);
     }
 
     private string GetWinText(List<IPlayer> players)
