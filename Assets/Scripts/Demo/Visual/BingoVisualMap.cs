@@ -17,6 +17,7 @@ public class BingoVisualMap : MonoBehaviour
     // Визуальная часть карты
     [Header("Визуальная часть карты")]
     [SerializeField] private GameObject _visualTable;
+    [SerializeField] private UniversalAnimator _visualTableShadow;
     [SerializeField] private float _border = 1.3f;
 
     // Анимация появления фишек
@@ -106,6 +107,7 @@ public class BingoVisualMap : MonoBehaviour
         UniversalAnimator animator = _visualTable.GetComponent<UniversalAnimator>();
 
         animator.AnimateSpriteSizeWithOvershoot(Vector2.zero, targetSize, _tableAppearDuration, _tableOvershootFactor, _timeBeforeAnimationStart);
+        _visualTableShadow.AnimateSpriteSizeWithOvershoot(Vector2.zero, targetSize, _tableAppearDuration, _tableOvershootFactor, _timeBeforeAnimationStart);
     }
 
     public float GetXByColumnId(int columnId)

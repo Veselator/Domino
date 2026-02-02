@@ -72,6 +72,24 @@ public class PlayerControlls : MonoBehaviour
         _isControllAllowed = true;
     }
 
+    public bool IsPossibleToDoMove(int direction)
+    {
+        if (!_isControllAllowed) return false;
+
+        int newId = _selectedColumnId + direction;
+
+        while (newId >= 0 && newId <= _maxColumnId)
+        {
+            if (!_map.IsColumnFilled(newId))
+            {
+                return true;
+            }
+            newId += direction;
+        }
+
+        return false;
+    }
+
     private void TryToMove(int direction)
     {
         // Попытка переместить указатель

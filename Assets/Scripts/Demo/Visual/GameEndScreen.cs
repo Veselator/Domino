@@ -47,13 +47,13 @@ public class GameEndScreen : MonoBehaviour
     private void HandleGameEnded(List<IPlayer> players)
     {
         _handler.SetActive(true);
-        _restartButton.Rect.sizeDelta = Vector2.zero;
-        _menuButton.Rect.sizeDelta = Vector2.zero;
-        _background.Image.color = Color.clear;
-        _winText.Text.text = "";
-        _loseText.Text.text = "";
-        _restartButtonText.Text.text = "";
-        _menuButtonText.Text.text = "";
+        if(_restartButton != null) _restartButton.Rect.sizeDelta = Vector2.zero;
+        if (_menuButton != null) _menuButton.Rect.sizeDelta = Vector2.zero;
+        if (_background != null) _background.Image.color = Color.clear;
+        if (_winText != null) _winText.Text.text = "";
+        if (_loseText != null) _loseText.Text.text = "";
+        if (_restartButtonText != null) _restartButtonText.Text.text = "";
+        if (_menuButtonText != null) _menuButtonText.Text.text = "";
         StartCoroutine(AnimateGameEndScreen(players));
     }
 
@@ -61,20 +61,20 @@ public class GameEndScreen : MonoBehaviour
     {
         WaitForSeconds delay = new WaitForSeconds(_delay);
 
-        _background.InterpolateColor(_backgroundColor, _fadeAnimationDuration);
+        if (_background != null) _background.InterpolateColor(_backgroundColor, _fadeAnimationDuration);
         yield return delay;
 
-        _winText.StyledTypingAnimation(GetWinText(players), _timePerCharacter);
+        if (_winText != null) _winText.StyledTypingAnimation(GetWinText(players), _timePerCharacter);
         yield return delay;
 
-        _loseText.TextTypingAnimation(GetLoseText(players), _timePerCharacter);
+        if (_loseText != null) _loseText.TextTypingAnimation(GetLoseText(players), _timePerCharacter);
         yield return delay;
 
-        _restartButton.AnimateImageSizeWithOvershoot(_buttonFinalSize, _buttonAnimationDuration);
-        _menuButton.AnimateImageSizeWithOvershoot(_buttonFinalSize, _buttonAnimationDuration);
+        if (_restartButton != null) _restartButton.AnimateImageSizeWithOvershoot(_buttonFinalSize, _buttonAnimationDuration);
+        if (_menuButton != null) _menuButton.AnimateImageSizeWithOvershoot(_buttonFinalSize, _buttonAnimationDuration);
         yield return delay;
-        _restartButtonText.StyledTypingAnimation("PLAY AGAIN", _timePerCharacter);
-        _menuButtonText.StyledTypingAnimation("MENU", _timePerCharacter);
+        if (_restartButtonText != null) _restartButtonText.StyledTypingAnimation("PLAY AGAIN", _timePerCharacter);
+        if (_menuButtonText != null) _menuButtonText.StyledTypingAnimation("MENU", _timePerCharacter);
     }
 
     private string GetWinText(List<IPlayer> players)

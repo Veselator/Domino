@@ -13,6 +13,7 @@ public class BingoVisualUserPointer : MonoBehaviour
     [SerializeField] private float _pieceYOffset = 1.2f;
 
     [SerializeField] private GameObject _pointer;
+    [SerializeField] private GameObject[] _arrows;
 
     private UniversalAnimator _pointerAnimationComponent;
     private SpriteRenderer _cashedSpriteRenderer;
@@ -52,6 +53,9 @@ public class BingoVisualUserPointer : MonoBehaviour
         float yPos = _map.IsColumnFilled(columnId) ? _pointer.transform.position.y : _visualMap.GetYByRowId(_map.GetLengthOfColumn(columnId));
         Vector2 newPosition = new Vector2(_visualMap.GetXByColumnId(columnId), yPos);
         _pointerAnimationComponent.Animate(newPosition, _pieceSpeed);
+
+        _arrows[0].SetActive(_playerControlls.IsPossibleToDoMove(1));
+        _arrows[1].SetActive(_playerControlls.IsPossibleToDoMove(-1));
     }
 
     private void ForceToChangePosition(int columnId)
