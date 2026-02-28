@@ -26,7 +26,7 @@ public class UniversalAnimator : MonoBehaviour
 
     [SerializeField] private ParticleSystem[] _particles;
 
-    private void Start()
+    private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _image = GetComponent<Image>();
