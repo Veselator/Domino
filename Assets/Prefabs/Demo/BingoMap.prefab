@@ -159,6 +159,7 @@ MonoBehaviour:
   _waitBeforeReset: 0.5
   _offsetYToDisappearPieces: -14
   _endRoundAnimationDuration: 0.26
+  _pieceSound: {fileID: 0}
 --- !u!1 &6447540222870708168
 GameObject:
   m_ObjectHideFlags: 0
