@@ -8,3 +8,7 @@ This is a repository of the Turn-Based Framework. It was created to simplify dev
 - unified global states using pattern Event bus;
 - rules system that makes system scalable and expandable, possible to add various types of rule: rule for win or defeat, for calculating points, to check conditions during turn, after round etc.;
 - clean architecture with documentation.
+
+## Documentation
+
+Full codebase documentation is available in [DOCUMENTATION.md](DOCUMENTATION.md).
