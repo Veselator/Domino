@@ -12,3 +12,10 @@ This is a repository of the Turn-Based Framework. It was created to simplify dev
 ## Documentation
 
 Full codebase documentation is available in [DOCUMENTATION.md](DOCUMENTATION.md).
+
+## Assets
+
+The project uses following assets:
+- [2D Casual UI HD](https://assetstore.unity.com/packages/2d/gui/icons/2d-casual-ui-hd-82080);
+- [48 Particle Effect Pack](https://assetstore.unity.com/packages/vfx/particles/spells/48-particle-effect-pack-13998);
+- [Fast Script Reload](https://assetstore.unity.com/packages/tools/utilities/fast-script-reload-239351).
