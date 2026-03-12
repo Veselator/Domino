@@ -372,14 +372,14 @@ RectTransform:
   m_GameObject: {fileID: 580801314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85858, y: 0.85858, z: 0.85858}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 676979085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 726, y: -402}
+  m_AnchoredPosition: {x: 595, y: -431}
   m_SizeDelta: {x: -1100.4991, y: -788.6023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &580801316
@@ -406,7 +406,10 @@ MonoBehaviour:
 
     A & D
 
-    Left Arror & Right arrow'
+    Left Arror & Right arrow
+
+    Space to place
+    pieces'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e7b273bd8e373d46b4aadefefdec867, type: 2}
   m_sharedMaterial: {fileID: -8737197084480857152, guid: 6e7b273bd8e373d46b4aadefefdec867, type: 2}
@@ -445,7 +448,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -37.79
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
